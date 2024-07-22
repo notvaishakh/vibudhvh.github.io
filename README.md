@@ -20,7 +20,7 @@ For the Web Application Programming and Hacking (WAPH) project, I developed a co
 ![https://github.com/notvaishakh/vibudhvh.github.io](https://github.com/notvaishakh/vibudhvh.github.io) 
 
 ### Website URL
-![[https://github.com/notvaishakh/vibudhvh.github.io/blob/main/index.html](https://notvaishakh.github.io/vibudhvh.github.io/) 
+![[https://notvaishakh.github.io/vibudhvh.github.io/](https://notvaishakh.github.io/vibudhvh.github.io/) 
 
 
 
