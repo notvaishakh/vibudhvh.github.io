@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        #clock { font-size: 24px; margin-top: 20px; }
+        #joke { margin-top: 20px; }
+        #analog-clock { margin-top: 20px; }
+        .toggle-button { background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+        .profile-pic { max-width: 100%; height: auto; border-radius: 50%; }
+        .jumbotron { background-color: #f8f9fa; padding: 2rem 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">My Professional Profile</h1>
+            <img src="headshot.jpeg" class="profile-pic mb-3" alt="Your Headshot" width="150">
+            <h2 class="mb-3">Name: Vaishakh V Nair</h2>
+            <p class="mb-1">Email: <span id="email">vibudhvh@mail.uc.edu</span></p>
+            <button class="toggle-button" onclick="toggleEmail()">Show/Hide Email</button>
+            <p class="mb-1">Phone: +513 837 (XXXX)</p>
+        </div>
+        
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Education</h3>
+                <p class="card-text">Computer Engineering Senior year at University of Cincinnati.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Experience</h3>
+                <p class="card-text">Worked in Web and App dev at KLH Engineers. VR Development for medical training at Feng Chia University.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Skills</h3>
+                <p class="card-text">c#, blazor, mudblazor, python, winforms, wph.</p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Web Application Programming and Hacking</h3>
+                <p class="card-text">Details about the course. <a href="waph.html">Course Information</a></p>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Current Time</h3>
+                <div id="clock" class="lead"></div>
+                <canvas id="analog-clock" width="150" height="150"></canvas>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Joke of the Moment</h3>
+                <div id="joke"></div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+                <h3 class="card-title">Random Lorem Picsum Image</h3>
+                <img id="randomImage" alt="Random Lorem Picsum Image" style="max-width: 100%; height: auto;">
+            </div>
+        </div>  
+    
+    </div>
+
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            const expires = "expires=" + d.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+    
+        // Function to get a cookie value
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+    
+        // Check for existing cookie and display appropriate message
+        function checkCookie() {
+            const lastVisit = getCookie("lastVisit");
+            if (lastVisit) {
+                alert(`Welcome back! Your last visit was ${lastVisit}`);
+            } else {
+                alert('Welcome to my homepage!');
+            }
+            setCookie("lastVisit", new Date().toLocaleString(), 365);
+        }
+        checkCookie();
+    
+        // Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    
+        // JokeAPI Integration
+        function fetchJoke() {
+            axios.get('https://v2.jokeapi.dev/joke/Any')
+                .then(response => {
+                    const joke = response.data.joke || `${response.data.setup} - ${response.data.delivery}`;
+                    document.getElementById('joke').textContent = joke;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+        fetchJoke();
+    
+        // Toggle Email visibility
+        function toggleEmail() {
+            const emailSpan = document.getElementById('email');
+            const button = document.querySelector('.toggle-button');
+            if (emailSpan.style.display === 'none') {
+                emailSpan.style.display = 'inline';
+                button.textContent = 'Hide Email';
+            } else {
+                emailSpan.style.display = 'none';
+                button.textContent = 'Show Email';
+            }
+        }
+    
+        // Analog Clock
+        var canvas = document.getElementById("analog-clock");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90;
+        setInterval(drawClock, 1000);
+    
+        function drawClock() {
+            ctx.clearRect(-radius, -radius, canvas.width, canvas.height); // Clear canvas
+            drawFace(ctx, radius);
+            drawNumbers(ctx, radius);
+            drawTime(ctx, radius);
+        }
+    
+        function drawFace(ctx, radius) {
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            var grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+            grad.addColorStop(0, '#333');
+            grad.addColorStop(0.5, 'white');
+            grad.addColorStop(1, '#333');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = radius * 0.1;
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+            ctx.fillStyle = '#333';
+            ctx.fill();
+        }
+    
+        function drawNumbers(ctx, radius) {
+            var ang;
+            var num;
+            ctx.font = radius * 0.15 + "px arial";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            for (num = 1; num < 13; num++) {
+                ang = num * Math.PI / 6;
+                ctx.rotate(ang);
+                ctx.translate(0, -radius * 0.85);
+                ctx.rotate(-ang);
+                ctx.fillText(num.toString(), 0, 0);
+                ctx.rotate(ang);
+                ctx.translate(0, radius * 0.85);
+                ctx.rotate(-ang);
+            }
+        }
+    
+        function drawTime(ctx, radius) {
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            // Hour
+            hour = hour % 12;
+            hour = (hour * Math.PI / 6) +
+                (minute * Math.PI / (6 * 60)) +
+                (second * Math.PI / (360 * 60));
+            drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+            // Minute
+            minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+            drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+            // Second
+            second = (second * Math.PI / 30);
+            drawHand(ctx, second, radius * 0.9, radius * 0.02);
+        }
+    
+        function drawHand(ctx, pos, length, width) {
+            ctx.beginPath();
+            ctx.lineWidth = width;
+            ctx.lineCap = "round";
+            ctx.moveTo(0, 0);
+            ctx.rotate(pos);
+            ctx.lineTo(0, -length);
+            ctx.stroke();
+            ctx.rotate(-pos);
+        }
+    
+        // Function to fetch a random Lorem Picsum image
+        function fetchRandomImage() {
+            const url = 'https://picsum.photos/800/600'; // Random image URL
+            document.getElementById('randomImage').src = url;
+        }
+    
+        fetchRandomImage();
+    </script>
+</body>
+</html>
