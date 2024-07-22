@@ -20,13 +20,18 @@ For the Web Application Programming and Hacking (WAPH) project, I developed a co
 ![https://github.com/notvaishakh/vibudhvh.github.io](https://github.com/notvaishakh/vibudhvh.github.io) 
 
 ### Website URL
-![https://github.com/notvaishakh/vibudhvh.github.io/blob/main/index.html](https://github.com/notvaishakh/vibudhvh.github.io/blob/main/index.html) 
+![[https://github.com/notvaishakh/vibudhvh.github.io/blob/main/index.html](https://notvaishakh.github.io/vibudhvh.github.io/) 
 
 
 
 ### Use of Bootstrap CSS Framework
 
 ![](img1.jpeg)
+
+I used 2 JAVA Script frameworks. Jquery and axios.
+
+These frameworks and libraries are essential for enhancing the functionality and design of the web application. jQuery is used primarily for DOM manipulation and event handling, while Bootstrap provides styling and layout components. Axios facilitates seamless integration with external APIs, enabling dynamic content retrieval and display. Together, they contribute to a responsive and interactive user experience on the webpage.
+
 
 I utilized the Bootstrap CSS framework to ensure a responsive and visually appealing design for my professional profile. Bootstrap's grid system and components facilitated the layout of elements such as the resume, contact information, and project descriptions, enhancing accessibility across devices.
 
