@@ -10,14 +10,14 @@
 
 **Short-bio**: Vaishakh has keen interests in web and app development. 
 
-![Vaishakh's headshot](images/headshot.jpeg)
+![Vaishakh's headshot](headshot.jpeg)
 ## Overview
 
-    For the Web Application Programming and Hacking (WAPH) project, I developed a comprehensive personal website hosted on GitHub Pages. This professional profile includes my resume, educational background, skills, and experiences targeted towards potential employers. The site incorporates various JavaScript functionalities, APIs, and adheres to non-technical and technical requirements specified for this project.
+For the Web Application Programming and Hacking (WAPH) project, I developed a comprehensive personal website hosted on GitHub Pages. This professional profile includes my resume, educational background, skills, and experiences targeted towards potential employers. The site incorporates various JavaScript functionalities, APIs, and adheres to non-technical and technical requirements specified for this project.
 
 
 ### Github Repository URL
-![](https://github.com/notvaishakh/vibudhvh.github.io) 
+![https://github.com/notvaishakh/vibudhvh.github.io](https://github.com/notvaishakh/vibudhvh.github.io) 
 
 ### Website URL
 ![https://github.com/notvaishakh/vibudhvh.github.io/blob/main/index.html](https://github.com/notvaishakh/vibudhvh.github.io/blob/main/index.html) 
@@ -35,9 +35,9 @@ To monitor site traffic and visitor demographics, I integrated a page tracker us
 Basic JavaScript Code
 jQuery and JavaScript Frameworks
 
-    Digital Clock: Implemented a digital clock that updates every second to display the current time accurately.
-    Analog Clock: Developed an analog clock using HTML canvas and JavaScript, offering a visual representation of time with hour, minute, and second hands.
-    Show/Hide Email Functionality: Incorporated a toggle button using jQuery to dynamically show or hide the email address, enhancing user privacy.
+Digital Clock: Implemented a digital clock that updates every second to display the current time accurately.
+Analog Clock: Developed an analog clock using HTML canvas and JavaScript, offering a visual representation of time with hour, minute, and second hands.
+Show/Hide Email Functionality: Incorporated a toggle button using jQuery to dynamically show or hide the email address, enhancing user privacy.
 
 Public Web APIs Integration
 ### JokeAPI and Lorem Picsum random imageIntegration
