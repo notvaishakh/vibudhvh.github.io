@@ -26,7 +26,10 @@ For the Web Application Programming and Hacking (WAPH) project, I developed a co
 
 ### Use of Bootstrap CSS Framework
 
+![](img1.jpeg)
+
 I utilized the Bootstrap CSS framework to ensure a responsive and visually appealing design for my professional profile. Bootstrap's grid system and components facilitated the layout of elements such as the resume, contact information, and project descriptions, enhancing accessibility across devices.
+
 
 ### Page Tracker Integration
 
@@ -35,12 +38,16 @@ To monitor site traffic and visitor demographics, I integrated a page tracker us
 Basic JavaScript Code
 jQuery and JavaScript Frameworks
 
+![](img2.jpeg)
+
 Digital Clock: Implemented a digital clock that updates every second to display the current time accurately.
 Analog Clock: Developed an analog clock using HTML canvas and JavaScript, offering a visual representation of time with hour, minute, and second hands.
 Show/Hide Email Functionality: Incorporated a toggle button using jQuery to dynamically show or hide the email address, enhancing user privacy.
 
 Public Web APIs Integration
 ### JokeAPI and Lorem Picsum random imageIntegration
+
+![](img3.jpeg)
 
 Integrated the JokeAPI (https://v2.jokeapi.dev/joke/Any) to fetch jokes in various categories every minute. The webpage displays a new joke periodically, enriching user experience with humorous content.
 Lorem Picsum API Integration
